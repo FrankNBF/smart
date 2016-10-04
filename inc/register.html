@@ -1,0 +1,70 @@
+<div class="gallery-fix"></div><!-- Fix Gallery next/prev error on Android -->
+<div class="sidebar-tap-close"></div><!-- Overlay for content to close Sidebar -->
+
+<div class="header-fixed header-dark">
+    <a href="" class="header-logo">SMART<span>STUDENT</span></a>
+</div>
+
+<div id="page-content" ng-controller="userCtrl">
+    <div id="page-content-scroll"><!--Enables this element to be scrolled -->
+
+        <div class="cover-page cover-image" style="background-image:url(images/pictures/2.jpg);">
+            <div class="cover-page-content"><!--add boxed-layout to this to change the style-->
+
+                <div class="pageapp-login">
+                    <h3 class="pageapp-login-text" style="margin:15px auto;">CREATE ACCOUNT </h3>
+                    <div class="spacer"></div>
+                    <form method="post" name="registerForm"  ng-submit="registerUser()">
+						<div class="cover-field">
+                            <i class="fa fa-key"></i>
+                            <input type="text" placeholder="Enter your matricule" ng-model="matricule" required>
+                        </div>
+                        <div class="cover-field">
+                            <i class="fa fa-user"></i>
+                            <input type="text" placeholder="Enter your name" ng-model="name" required>
+                        </div>
+                        <div class="cover-field">
+                            <i class="fa fa-envelope-o"></i>
+                            <input type="email" placeholder="Enter your email" ng-model="email" required >
+                        </div>
+						<div class="cover-field">
+                            <i class="fa fa-phone"></i>
+                            <input type="number" placeholder="Enter your phone" ng-model="phone" required >
+                        </div>
+                        <div class="cover-field">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" placeholder="Enter your password" ng-model="password" required>
+                        </div>
+                        <div class="cover-field">
+                            <i class="fa fa-unlock-alt"></i>
+                            <input type="password" placeholder="Confirm your password" ng-model="password2" required>
+                        </div>
+                        <!--<a href="#" type="submit" class="pageapp-login-button button button-orange"><i class="fa fa-arrow-right"></i>Register</a>-->
+                        <p><small class=" color-red-dark">{{ error }}</small></p>
+						<input type="submit" value="Next >>" class="pageapp-login-button button button-orange" style="margin-bottom:0">
+                    </form>
+					<p><a class="color-white" href="#home"><small>Already have an account ?</small></a></p>
+					
+                </div>
+				
+            </div>
+			
+            <div class="overlay"></div>
+            <div class="cover-buttons">
+                <a class="cover-button-right" href="">
+                    Copyright &copy; 2016
+                    <i class="space-left fa fa-code"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+	
+    <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+</div>
+<style>
+	p {
+		line-height: 30px;
+		margin-bottom: 0px;
+		font-size: 14px;
+	}
+</style>

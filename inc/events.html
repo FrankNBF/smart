@@ -1,0 +1,66 @@
+<div class="has-cover" ng-controller="eventsCtrl">
+    <div class="gallery-fix"></div><!-- Fix Gallery next/prev error on Android -->
+    <div class="sidebar-tap-close"></div><!-- Overlay for content to close Sidebar -->
+
+    <ng-include src="header_menu.url"></ng-include>
+    <!--Material Menu Background. Must be under material menu items.-->
+    <div class="material-menu-background material-menu-dark-background"></div>
+
+    <div id="page-content">
+        <div id="page-content-scroll"><!--Enables this element to be scrolled -->
+            <div class="coverpage-slider coverpage-news half-bottom" style="background-image:url(images/pictures/1.jpg); background-size:cover">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide cover-slide cover-screen" ng-repeat="(key, item) in events | orderBy:'START_DATE'">
+                        <div class="cover-news">
+                            <h4>{{ item.TITRE }}</h4>
+                            <h5>{{ item.START_DATE }}  <a href="#">{{item.ID_UNIVERSITE}}</a></h5>
+                            <p class="half-bottom">
+							{{item.RESUME}}
+                            </p>
+                            <a href="" class="button-more-cover">Read More</a>
+                            <a href="" class="button-share-cover show-share-bottom" style="font-size:40px;"><i class="color-white fa fa-sort"></i></a>
+                        </div>
+                        <div class="overlay overlay-news"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="decoration"></div>
+                <div class="heading-badge border-red-dark">
+                    <h3 class="bg-red-dark">Rescent news</h3>
+                </div>
+                <div class="thumb-layout">
+                    <a href="" ng-repeat="(key, item) in events | orderBy:'START_DATE'">
+                        <strong>{{item.TITRE}}</strong>
+                        <em>{{item.RESUME}}</em>
+                    </a>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="decoration"></div>
+                <div class="heading-badge border-green-dark">
+                    <h3 class="bg-green-dark">Archived news</h3>
+                </div>
+                <div class="thumb-layout">
+                    <a href="" ng-repeat="(key, item) in events | orderBy:'START_DATE'">
+                        <strong>{{item.TITRE}}</strong>
+                        <em>{{item.RESUME}}</em>
+                    </a>
+                </div>
+                <div class="decoration"></div>
+            </div>
+
+			<ng-include src="footer.url"></ng-include>
+            <div class="footer-clear disabled"></div>
+        </div>
+        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+    </div>
+</div>
+
+<script>
+	$(document).ready(function () {
+		$(".swiper-slide").height(($(window).height()));
+	});
+</script>
