@@ -157,7 +157,7 @@ textarea {
 /*----Typography----*/ 
 
 p {
-	line-height: 30px;
+	line-height: normal;
 	margin-bottom: 30px;
 	font-size:14px;
 }

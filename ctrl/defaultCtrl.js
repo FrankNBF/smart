@@ -38,6 +38,29 @@ app.controller('eventsCtrl', function($scope,UserFactory,EventsFactory,$location
 });
 
 
+/* ------------------------- Controleur de gestion des news ----------------------------------------*/
+app.controller('newsCtrl', function($scope,UserFactory,EventsFactory,$location) {
+    console.log('Je suis dans newsCtrl');
+	
+	$scope.news=EventsFactory.news;
+	$scope.getNews = function(){
+		var source ={
+			'type': 'News',
+		};
+		res =  EventsFactory.getEvents(source).then(function(response) {
+			if(response.getError()){
+				$scope.error = response.getMessage();
+				$scope.initError();
+			}else{
+				$scope.news=response.news;
+				loadPage();
+			}
+		});
+    };
+	$scope.getNews();
+});
+
+
 /* ------------------------- Controleur de gestion des utilisateurs ----------------------------------------*/
 app.controller('userCtrl', function($scope,UserFactory,$location) {
 	console.log('Je suis dans USERCTRL');

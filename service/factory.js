@@ -1,4 +1,4 @@
-var url = 'http://localhost/smartstudent/admin/webservice/';
+var url = 'http://cbatconsult.com/smartstudent/webservice/';
 
 
 
@@ -120,13 +120,14 @@ app.factory('UserFactory', function ($http, $q) {
 
 
 
-/* ------------------------- Factory de gestion des events ----------------------------------------*/
+/* ------------------------- Factory de gestion des events et les news ----------------------------------------*/
 app.factory('EventsFactory', function ($http, $q) {
     factory = {
 		// Définition des attributs de la l'entité(factory)
 		error:false,
 		message:false,
 		events:false,
+		news:false,
 		
 		// Définition des méthodes de la l'entité(factory)
 		getError:function (){ return factory.error; },
@@ -143,7 +144,8 @@ app.factory('EventsFactory', function ($http, $q) {
 						factory.error=true;
 						factory.message=result.message;
 					}else{
-						factory.events = result.data;
+						if(source.type=="Event") factory.events = result.data;
+						else factory.news = result.data;
 					}
                     defered.resolve(factory)
                 })
@@ -153,6 +155,10 @@ app.factory('EventsFactory', function ($http, $q) {
 					defered.resolve(factory);
                 })
             return defered.promise;
+        },
+		
+		getEvent: function (id) {
+			return events[0];
         },
 	}
     return factory;

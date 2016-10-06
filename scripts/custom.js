@@ -188,7 +188,7 @@ function loadPage() {
         var swiper_news_slider = new Swiper('.news-slider');
         var swiper_home_slider = new Swiper('.homepage-slider', {autoplay:3000});
         var swiper_quote_slider = new Swiper('.quote-slider', {autoplay:3000});
-        var swiper_coverpage = new Swiper('.coverpage-slider', {autoplay:3000});
+        var swiper_coverpage = new Swiper('.coverpage-slider', {autoplay:7000});
         var swiper_category_slider = new Swiper('.category-slider', {
         pagination: '.swiper-pagination',
         paginationClickable: true,

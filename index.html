@@ -27,7 +27,10 @@
 </head>
 
 <body class="has-cover" ng-controller="appCtrl">
-	<ng-view>  </ng-view>
+	<div class="loading-overlay">
+		Please wait a moment ...
+	</div>
+	<ng-view> </ng-view>
 
     <script src="scripts/angular/angular.min.js"></script>
     <script src="scripts/angular-route/angular-route.min.js"></script>
@@ -35,8 +38,17 @@
     <script src="scripts/app.js"></script>
     <script src="ctrl/defaultCtrl.js"></script>
 	<script src="service/factory.js"></script>
-
-
-
+	<script>
+		jQuery(document).ready(function() {  
+			// Show loading overlay when ajax request starts
+			$( document ).ajaxStart(function() {
+				$('.loading-overlay').show();
+			});
+			// Hide loading overlay when ajax request completes
+			$( document ).ajaxStop(function() {
+				$('.loading-overlay').hide();
+			});
+		});
+	</script>
 </body>
 </html>
