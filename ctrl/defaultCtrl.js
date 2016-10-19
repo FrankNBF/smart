@@ -15,9 +15,8 @@ app.controller('appCtrl', function($scope) {
 
 
 /* ------------------------- Controleur de gestion des events ----------------------------------------*/
-app.controller('eventsCtrl', function($scope,UserFactory,EventsFactory,$location) {
+app.controller('eventsCtrl', function($scope,UserFactory,EventsFactory,$location,$routeParams) {
     console.log('Je suis dans eventsCtrl');
-	
 	$scope.events=EventsFactory.events;
 	$scope.getEvents = function(){
 		var source ={
@@ -34,7 +33,18 @@ app.controller('eventsCtrl', function($scope,UserFactory,EventsFactory,$location
 		});
     };
 	$scope.getEvents();
-	
+});
+
+
+
+/* ------------------------- Controleur de gestion d'une news ----------------------------------------*/
+app.controller('newCtrl', function($scope,EventsFactory,$location,$routeParams, $sce) {
+    console.log('Je suis dans newCtrl');
+	$scope.row=EventsFactory.getEvent($routeParams.id);
+	console.log($routeParams.id);
+	console.log($scope.row);
+	$scope.description=$sce.trustAsHtml($scope.row.DESCRIPTION);
+	console.log($scope.description);
 });
 
 

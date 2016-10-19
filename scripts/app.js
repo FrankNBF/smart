@@ -15,6 +15,8 @@ app.config(function($routeProvider){
 		.when('/classes', {templateUrl:'inc/classes.html'})
         .when('/menu', {templateUrl:'inc/menu.html'})
         .when('/events', {templateUrl:'inc/events.html'})
+		.when('/events/:id', {templateUrl:'inc/new.html'})
 		.when('/news', {templateUrl:'inc/news.html'})
+		.when('/news/:id', {templateUrl:'inc/new.html'})
         .otherwise({redirectTo : '/home'});
 });

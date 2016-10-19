@@ -1,4 +1,4 @@
-<div class="has-cover" ng-controller="newsCtrl">
+<div class="has-cover" ng-controller="newCtrl">
     <div class="gallery-fix"></div><!-- Fix Gallery next/prev error on Android -->
     <div class="sidebar-tap-close"></div><!-- Overlay for content to close Sidebar -->
 
@@ -11,29 +11,26 @@
             <div class="header-clear"></div>
 			<div class="content-strip">
 				<div class="strip-content">
-					<h4>Department News</h4>
-					<p>See the news of {{item.ID_UNIVERSITE}}</p>
+					<h4>{{ row.TITRE }} </h4>
+					<p>{{row.TYPE}} of {{row.ID_UNIVERSITE}} / FS /MIAGE</p>
 					<i class="fa fa-clock-o"></i>
 				</div>
 				<div class="overlay"></div>
 				<img class="preload-image" data-original="images/pictures/1.jpg" alt="img">
 			</div>
 			
-			<div class="content">
-				<div class="decoration"></div>    
-				<div class="pageapp-timeline-2">
-					<div class="timeline-decoration"></div>
-					<div class="timeline-item" ng-repeat="(key, item) in news | orderBy:'START_DATE'">
-						<div class="timeline-icon">
-							<i class="fa fa-quote-left bg-hover-green-dark"></i>
+			<div class="content">  
+				<div class="page-blog">
+					<div class="page-blog-list">
+						<strong class="page-blog-tags">Create on: <a href="">{{row.START_DATE}}</a></strong>
+						<div class="page-blog-content">
+							<div class="decoration"></div>  
+							<div class="dropcaps-1" ng-bind-html="description"></div>
+							<div class="clear"></div>
 						</div>
-						<div class="timeline-text">
-							<h4 class="title">{{ item.TITRE }}</h4>
-							<em class="subtitle">{{ item.START_DATE }} | {{item.ID_UNIVERSITE}}</em>
-							<p>{{item.RESUME}}</p>
-						</div>
+						<br/>
+						<a href="" class="button button-orange button-fullscreen full-bottom">GO BACK</a>
 					</div>
-					<a href="" class="button button-orange button-fullscreen full-bottom">SEE MORE</a>
 				</div>
 				<div class="decoration"></div>
 			</div>
@@ -41,7 +38,7 @@
 			<ng-include src="footer.url"></ng-include>
             <div class="footer-clear disabled"></div>
         </div>
-        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+        <a href="#/" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
     </div>
 </div>
 

@@ -17,8 +17,8 @@
                             <p class="half-bottom">
 							{{item.RESUME}}
                             </p>
-                            <a href="" class="button-more-cover">Read More</a>
-                            <a href="" class="button-share-cover show-share-bottom" style="font-size:40px;"><i class="color-white fa fa-sort"></i></a>
+                            <a href="#events/{{item.ID_ANNONCE}}" class="button-more-cover">Read More</a>
+                            <a href="#events/{{item.ID_ANNONCE}}" class="button-share-cover show-share-bottom" style="font-size:40px;"><i class="color-white fa fa-sort"></i></a>
                         </div>
                         <div class="overlay overlay-news"></div>
                     </div>
@@ -31,10 +31,12 @@
                     <h3 class="bg-red-dark">Rescent news</h3>
                 </div>
                 <div class="thumb-layout">
-                    <a href="" ng-repeat="(key, item) in events | orderBy:'START_DATE'">
-                        <strong>{{item.TITRE}}</strong>
-                        <em>{{item.RESUME}}</em>
-                    </a>
+                    <div  ng-repeat="(key, item) in events | orderBy:'START_DATE'">
+						<a href="#events/{{item.ID_ANNONCE}}">
+							<strong>{{item.TITRE}}</strong>
+							<em>{{item.RESUME}}</em>
+						</a>
+					</div>
                 </div>
             </div>
 
@@ -44,10 +46,12 @@
                     <h3 class="bg-green-dark">Archived news</h3>
                 </div>
                 <div class="thumb-layout">
-                    <a href="" ng-repeat="(key, item) in events | orderBy:'START_DATE'">
-                        <strong>{{item.TITRE}}</strong>
-                        <em>{{item.RESUME}}</em>
-                    </a>
+					<div  ng-repeat="(key, item) in events | orderBy:'START_DATE'">
+						<a href="#events/{{item.ID_ANNONCE}}">
+							<strong>{{item.TITRE}}</strong>
+							<em>{{item.RESUME}}</em>
+						</a>
+					</div>
                 </div>
                 <div class="decoration"></div>
             </div>

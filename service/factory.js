@@ -1,4 +1,4 @@
-var url = 'http://cbatconsult.com/smartstudent/webservice/';
+var url = 'http://localhost/smartstudent/admin/webservice/';
 
 
 
@@ -158,7 +158,18 @@ app.factory('EventsFactory', function ($http, $q) {
         },
 		
 		getEvent: function (id) {
-			return events[0];
+			console.log("Je suis dans le getEvent");
+			var result;
+			var log = [];
+			angular.forEach(factory.events, function(value, key) {
+				console.log(value);
+				console.log(id);
+			  if(value.ID_ANNONCE==id){
+				  result=value;
+				  console.log(value);
+			  }
+			}, log); 
+			return result;
         },
 	}
     return factory;
