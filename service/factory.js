@@ -171,6 +171,21 @@ app.factory('EventsFactory', function ($http, $q) {
 			}, log); 
 			return result;
         },
+		
+		getNews: function (id) {
+			console.log("Je suis dans le getNews");
+			var result;
+			var log = [];
+			angular.forEach(factory.news, function(value, key) {
+				console.log(value);
+				console.log(id);
+			  if(value.ID_ANNONCE==id){
+				  result=value;
+				  console.log(value);
+			  }
+			}, log); 
+			return result;
+        },
 	}
     return factory;
 });

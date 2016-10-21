@@ -22,18 +22,17 @@
 			<div class="content">
 				<div class="decoration"></div>    
 				<div class="pageapp-timeline-2">
-					<div class="timeline-decoration"></div>
 					<div class="timeline-item" ng-repeat="(key, item) in news | orderBy:'START_DATE'">
 						<div class="timeline-icon">
 							<i class="fa fa-quote-left bg-hover-green-dark"></i>
 						</div>
 						<div class="timeline-text">
-							<h4 class="title">{{ item.TITRE }}</h4>
+							<h4 class="title"><a href="#news/{{item.ID_ANNONCE}}"> {{ item.TITRE }}</a></h4>
 							<em class="subtitle">{{ item.START_DATE }} | {{item.ID_UNIVERSITE}}</em>
 							<p>{{item.RESUME}}</p>
 						</div>
 					</div>
-					<a href="" class="button button-orange button-fullscreen full-bottom">SEE MORE</a>
+					<a href="#events/{{item.ID_ANNONCE}}" class="button button-orange button-fullscreen full-bottom">SEE MORE</a>
 				</div>
 				<div class="decoration"></div>
 			</div>

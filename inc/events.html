@@ -13,7 +13,7 @@
                     <div class="swiper-slide cover-slide cover-screen" ng-repeat="(key, item) in events | orderBy:'START_DATE'">
                         <div class="cover-news">
                             <h4>{{ item.TITRE }}</h4>
-                            <h5>{{ item.START_DATE }}  <a href="#">{{item.ID_UNIVERSITE}}</a></h5>
+                            <h5>{{ item.START_DATE }}  <a href="#events/{{item.ID_ANNONCE}}">{{item.ID_UNIVERSITE}}</a></h5>
                             <p class="half-bottom">
 							{{item.RESUME}}
                             </p>

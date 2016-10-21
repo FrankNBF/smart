@@ -11,6 +11,9 @@ app.controller('appCtrl', function($scope) {
 		console.log('view is loaded and ready to be use');
 		loadPage();
 	});
+	$scope.doTheBack = function() {
+	  window.history.back();
+	};	
 });
 
 
@@ -40,7 +43,10 @@ app.controller('eventsCtrl', function($scope,UserFactory,EventsFactory,$location
 /* ------------------------- Controleur de gestion d'une news ----------------------------------------*/
 app.controller('newCtrl', function($scope,EventsFactory,$location,$routeParams, $sce) {
     console.log('Je suis dans newCtrl');
-	$scope.row=EventsFactory.getEvent($routeParams.id);
+	var path = $location.path();
+	var e = path.indexOf("events");
+	if(e!=-1) $scope.row=EventsFactory.getEvent($routeParams.id);
+	else $scope.row=EventsFactory.getNews($routeParams.id);
 	console.log($routeParams.id);
 	console.log($scope.row);
 	$scope.description=$sce.trustAsHtml($scope.row.DESCRIPTION);
