@@ -38,22 +38,7 @@
 						</a>
 					</div>
                 </div>
-            </div>
-
-            <div class="content">
-                <div class="decoration"></div>
-                <div class="heading-badge border-green-dark">
-                    <h3 class="bg-green-dark">Archived news</h3>
-                </div>
-                <div class="thumb-layout">
-					<div  ng-repeat="(key, item) in events | orderBy:'START_DATE'">
-						<a href="#events/{{item.ID_ANNONCE}}">
-							<strong>{{item.TITRE}}</strong>
-							<em>{{item.RESUME}}</em>
-						</a>
-					</div>
-                </div>
-                <div class="decoration"></div>
+				<a href="" class="button button-orange button-fullscreen full-bottom"><i class="fa fa-recycle"></i> SEE MORE</a>
             </div>
 
 			<ng-include src="footer.url"></ng-include>
