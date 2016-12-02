@@ -108,6 +108,12 @@ Ajax loaders
     padding-bottom:10px;
 }
 
+.title a{
+	font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
 .heading-style p{
     width:90%!important;
     margin-left:auto;

@@ -59,6 +59,7 @@ app.controller('newsCtrl', function($scope,UserFactory,EventsFactory,$location) 
     console.log('Je suis dans newsCtrl');
 	
 	$scope.news=EventsFactory.news;
+	$scope.classe=UserFactory.classe;
 	$scope.getNews = function(){
 		var source ={
 			'type': 'News',
@@ -223,4 +224,7 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 });
 
 
-
+/* ------------------------- Controleur de gestion des emplois de temps ----------------------------------------*/
+app.controller('timetableCtrl', function($scope,UserFactory,$location) {
+    console.log('Je suis dans timetableCtrl');
+});

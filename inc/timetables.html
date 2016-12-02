@@ -1,4 +1,4 @@
-<div class="has-cover">
+<div class="has-cover" ng-controller="timetableCtrl">
     <div class="gallery-fix"></div><!-- Fix Gallery next/prev error on Android -->
     <div class="sidebar-tap-close"></div><!-- Overlay for content to close Sidebar -->
 
@@ -25,59 +25,14 @@
                 <div class="decoration"></div>
             </div>
 
-            <div class="content-fullscreen">    
-                <div class="one-half-responsive">
-                    <h3 class="right-text half-bottom padding-right">Jule, 2016</h3>
-                    <div class="calendar-titles">
-                        <a class="light-titles" href="#">S</a>
-                        <a href="#">M</a>
-                        <a href="#">T</a>
-                        <a href="#">W</a>
-                        <a href="#">T</a>
-                        <a href="#">F</a>
-                        <a class="light-titles" href="#">S</a>
-                    </div>
-                    <div class="decoration half-bottom"></div>
-                    <div class="calendar-days">
-                        <!-- &nbsp adds a space for the single numbers, this way they can be centered in boxes -->
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>&nbsp1</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>&nbsp2</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>&nbsp3</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>&nbsp4</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>&nbsp5</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>&nbsp6</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>&nbsp7</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>&nbsp8</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>&nbsp9</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>10</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>11</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>12</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>13</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>14</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>15</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>16</a>
-                        <a class="taken-day" href="#"><i class="fa fa-circle"></i>17</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>18</a>
-                        <a class="close-day" href="#"><i class="fa fa-circle"></i>19</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>20</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>21</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>22</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>23</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>24</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>25</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>26</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>27</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>28</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>29</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>30</a>
-                        <a class="clear-day" href="#"><i class="fa fa-circle"></i>31</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>&nbsp1</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>&nbsp2</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>&nbsp3</a>
-                        <a class="light-day" href="#"><i class="fa fa-circle"></i>&nbsp4</a>
-                    </div>
-                    <div class="clear"></div>
-                </div>
+            <div class="content-fullscreen"> 
+				<adm-dtp ng-model='date' full-data='date_details' options='{calType: "gregorian", format: "DD/MM/YYYY"}'>
+					<!-- attributes name are important, not tags name -->
+					<button dtp-open class="reddit-color social-button" style="width: 160px;"><i class="fa fa-calendar"></i> Open calendar </button>
+					<button dtp-close style="width: 30px; height:45px; background-color: #ff7f27; color: #FFFFFF; margin-left:-10px;"><i class="fa fa-close"></i></button>
+					&nbsp;&nbsp;&nbsp;<input type='text' ng-model='date' dtp-input />
+				</adm-dtp>
+				<h5 style="margin-top:20px">List of subjects</h5>
                 <div class="one-half-responsive last-column">      
                     <div class="calendar-hours">
                         <a href="" class="calendar-hour calendar-hour-taken">
