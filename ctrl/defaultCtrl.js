@@ -79,7 +79,7 @@ app.controller('newsCtrl', function($scope,UserFactory,EventsFactory,$location) 
 
 
 /* ------------------------- Controleur de gestion des utilisateurs ----------------------------------------*/
-app.controller('userCtrl', function($scope,UserFactory,$location) {
+app.controller('userCtrl', function($scope,UserFactory,$location, $cookieStore) {
 	console.log('Je suis dans USERCTRL');
     var that = this;
 	
@@ -207,6 +207,8 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 				$scope.error = response.getMessage();
 				$scope.initError();
 			}else{
+				$cookieStore.put('user',UserFactory.getUser());
+				$cookieStore.put('classe',UserFactory.getUserClasse());
 				$location.url('/menu');
 			}
 		});
@@ -225,6 +227,31 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 
 
 /* ------------------------- Controleur de gestion des emplois de temps ----------------------------------------*/
-app.controller('timetableCtrl', function($scope,UserFactory,$location) {
+app.controller('timetableCtrl', function($scope,UserFactory, TimetableFactory, $location, $cookieStore) {
+	
     console.log('Je suis dans timetableCtrl');
+	$scope.error='';
+	$scope.date=new Date();
+	$scope.classe=$cookieStore.get('classe');
+	$scope.timetable=false;
+	
+	$scope.dateChanged = function(){
+		var source ={
+			'classe': $scope.classe.ID_CLASSE,
+			'date': $scope.date,
+		};
+		res =  TimetableFactory.getTimetables(source).then(function(response) {
+			if(response.getError()){
+				$scope.error = response.getMessage();
+				$scope.initError();
+			}else{
+				$scope.timetable=TimetableFactory.timetables;
+			}
+		});
+    };
+	
+	$scope.initError = function(){
+		UserFactory.error=false;
+		UserFactory.message=false;
+    };
 });

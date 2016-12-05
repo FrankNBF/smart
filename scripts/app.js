@@ -3,7 +3,7 @@ document.addEventListener('deviceready', function(){
 }, false);
 
 //Ici on importe tous les plugins nécessaires dans l'application
-var app =angular.module('smartstudent',['ngRoute','ADM-dateTimePicker']);
+var app =angular.module('smartstudent',['ngRoute','ADM-dateTimePicker', 'ngCookies']);
 
 
 //Ici on déclare toutes les routes 

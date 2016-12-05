@@ -13,7 +13,7 @@
 
             <div class="content-strip">
                 <div class="strip-content">
-                    <h4>Master 1 MIAGE</h4>
+                    <h4>{{ classe.LIBELLE }}</h4>
                     <p>See your class timetable</p>
                     <i class="fa fa-calendar"></i>
                 </div>
@@ -26,39 +26,22 @@
             </div>
 
             <div class="content-fullscreen"> 
-				<adm-dtp ng-model='date' full-data='date_details' options='{calType: "gregorian", format: "DD/MM/YYYY"}'>
+				<adm-dtp ng-model='date' full-data='date_details' options='{calType: "gregorian", format: "DD/MM/YYYY"}' on-datechange="dateChanged()">
 					<!-- attributes name are important, not tags name -->
-					<button dtp-open class="reddit-color social-button" style="width: 160px;"><i class="fa fa-calendar"></i> Open calendar </button>
+					<button dtp-open style="width: 160px; height:45px; background-color: #2980b9; color: #FFFFFF;"><i class="fa fa-calendar"></i> Open calendar </button>
 					<button dtp-close style="width: 30px; height:45px; background-color: #ff7f27; color: #FFFFFF; margin-left:-10px;"><i class="fa fa-close"></i></button>
 					&nbsp;&nbsp;&nbsp;<input type='text' ng-model='date' dtp-input />
 				</adm-dtp>
 				<h5 style="margin-top:20px">List of subjects</h5>
                 <div class="one-half-responsive last-column">      
                     <div class="calendar-hours">
-                        <a href="" class="calendar-hour calendar-hour-taken">
-                            <strong class="cal-from">08:00 AM</strong>
-                            <strong class="cal-to">  11:00 AM</strong>
-                            <h4>[MI001] Informatique</h4>
-                            <em><i class="fa fa-user"></i>Prof Kenedy</em>
-                        </a>                   
-                        <a href="" class="calendar-hour calendar-hour-taken">
-                            <strong class="cal-from">12:00 AM</strong>
-                            <strong class="cal-to">  15:00 AM</strong>
-                            <h4>[MI002] Logiciel</h4>
-                            <em><i class="fa fa-user"></i>Prof test test</em>
-                        </a>                                 
-                        <a href="" class="calendar-hour calendar-hour-taken">
-                            <strong class="cal-from">18:00 AM</strong>
-                            <strong class="cal-to">  20:00 AM</strong>
-                            <h4>[MI015] Maths</h4>
-                            <em><i class="fa fa-user"></i>Dr Drake</em>
-                        </a> 
-                        <a href="" class="calendar-hour calendar-hour-taken">
-                            <strong class="cal-from">20:00 AM</strong>
-                            <strong class="cal-to">  22:00 AM</strong>
-                            <h4>[MI020] Biologie</h4>
-                            <em><i class="fa fa-user"></i>Prof Kenedy</em>
-                        </a>  
+						<p><small class=" color-red-dark">{{ error }}</small></p>
+                        <a href="" class="calendar-hour calendar-hour-taken" ng-repeat="(key, item) in timetable | orderBy:'HEURE_DEBUT'">
+                            <strong class="cal-from">{{item.HEURE_DEBUT}}</strong>
+                            <strong class="cal-to">  {{item.HEURE_FIN}}</strong>
+                            <h4>{{item.MATIERE}}</h4>
+                            <em><i class="fa fa-user"></i>{{item.ENSEIGNANT}}</em>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -20,7 +20,9 @@ app.factory('UserFactory', function ($http, $q) {
 		
 		// Définition des méthodes de la l'entité(factory)
 		getUser:function (){ return factory.user; },
-
+		
+		getUserClasse:function (){ return factory.classe; },
+		
 		getError:function (){ return factory.error; },
 		
 		getMessage:function (){ return factory.message; },
@@ -185,6 +187,45 @@ app.factory('EventsFactory', function ($http, $q) {
 			  }
 			}, log); 
 			return result;
+        },
+	}
+    return factory;
+});
+
+
+/* ------------------------- Factory de gestion des timetables ----------------------------------------*/
+app.factory('TimetableFactory', function ($http, $q) {
+    factory = {
+		// Définition des attributs de la l'entité(factory)
+		error:false,
+		message:false,
+		timetables:false,
+		
+		// Définition des méthodes de la l'entité(factory)
+		getError:function (){ return factory.error; },
+		
+		getMessage:function (){ return factory.message; },
+		
+        getTimetables: function (source) {
+			var defered = $q.defer();
+            $.post(url+'getTimetables', source)
+                .success(function (data, status) {
+					console.log(data);
+					result=jQuery.parseJSON(data);
+					if(result.error){
+						factory.error=true;
+						factory.message=result.message;
+					}else{
+						factory.timetables = result.data;
+					}
+                    defered.resolve(factory)
+                })
+                .error(function (data, status) {
+					factory.error=true;
+					factory.message='Error! No connexion to server.';
+					defered.resolve(factory);
+                })
+            return defered.promise;
         },
 	}
     return factory;
