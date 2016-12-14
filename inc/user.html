@@ -7,17 +7,17 @@
     <!--Material Menu Background. Must be under material menu items.-->
     <div class="material-menu-background material-menu-dark-background"></div>
     
-    <div id="page-content">
+    <div id="page-content" ng-controller="userCtrl">
         <div id="page-content-scroll"><!--Enables this element to be scrolled -->        
             <div class="header-clear"></div>
             <div class="content-fullscreen">
                 <div class="profile-header">
                     <img class="profile-cover responsive-image preload-image" data-original="images/pictures/1.jpg" alt="img">
-                    <a class="profile-picture show-gallery" href="images/pictures/8.jpg" title="Profile Image">
-                        <img data-original="images/pictures/8.jpg" class="preload-image" alt="img">
+                    <a class="profile-picture show-gallery" href="images/logo.png" title="Profile Image">
+                        <img data-original="images/logo.png" class="preload-image" alt="img" style="border:none;">
                     </a>
                     <a class="profile-icon-1 bg-orange-dark" href="#reglages"><i class="fa fa-edit"></i></a>
-                    <h3 class="hide-if-mobile">User Frank NBF</h3>
+                    <h3 class="hide-if-mobile">{{ user.NOM  }}  {{ user.PRENOM  }}</h3>
                     <div class="clear"></div>
                 </div>
             </div>
@@ -30,11 +30,11 @@
                             <p>Student</p>
                             <div class="decoration"></div>
                             <ul class="font-icon-list no-bottom">
-                                 <li><a href="#"><i class="fa fa-user"></i>UER0001</a></li>
-                                <li><a href="#"><i class="fa fa-phone"></i>+237 694 694 990</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i>franknbf@yahoo.fr</a></li>
-                                <li><a href="#"><i class="fa fa-calendar"></i>25 Years old</a></li>
-                                <li><a href="#"><i class="fa fa-location-arrow"></i>Douala, Cité cicam</a></li>
+                                 <li><a href="#"><i class="fa fa-user"></i> {{ user.MATRICULE  }}</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i> {{ user.PHONE  }}</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> {{ user.EMAIL  }}</a></li>
+                                <li><a href="#"><i class="fa fa-calendar"></i> {{ user.DATE_NAISSANCE  }}</a></li>
+                                <li><a href="#"><i class="fa fa-location-arrow"></i> {{ user.ADRESSE  }} </a></li>
                             </ul>
                             <br>
                         </div>
