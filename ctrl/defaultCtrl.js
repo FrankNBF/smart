@@ -79,24 +79,18 @@ app.controller('newsCtrl', function($scope,UserFactory,EventsFactory,$location) 
 
 
 /* ------------------------- Controleur de gestion des utilisateurs ----------------------------------------*/
-app.controller('userCtrl', function($scope,UserFactory,$location) {
+app.controller('userCtrl', function($scope,UserFactory,$location, $cookieStore) {
 	console.log('Je suis dans USERCTRL');
     var that = this;
 	
 	$scope.error='';
-	$scope.user=getSession('user');
+	$scope.user=UserFactory.getUser();
 	$scope.items=UserFactory.universites;
 	$scope.university=false;
 	$scope.faculty=false;
 	$scope.department=false;
 	$scope.classe=false;
 	$scope.titre='CHOOSE AN UNIVERSITY';
-	
-	$scope.init = function () {
-		if($scope.user) {
-			$location.url('/menu');
-		}
-	};
 	
 	$scope.registerUser = function(){
 		if($scope.password!=$scope.password2){
@@ -213,9 +207,8 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 				$scope.error = response.getMessage();
 				$scope.initError();
 			}else{
-				setSession("user", UserFactory.getUser());
-				setSession("classe", UserFactory.getUserClasse());
-				console.log(getSession("user").EMAIL);
+				$cookieStore.put('user',UserFactory.getUser());
+				$cookieStore.put('classe',UserFactory.getUserClasse());
 				$location.url('/menu');
 			}
 		});
@@ -228,20 +221,18 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 	
 	$scope.logoutUser = function(){
 		UserFactory.user=false;
-		window.localStorage.removeItem("user");
-		window.localStorage.removeItem("classe");
 		$location.url('/home');
     };
 });
 
 
 /* ------------------------- Controleur de gestion des emplois de temps ----------------------------------------*/
-app.controller('timetableCtrl', function($scope,UserFactory, TimetableFactory, $location) {
+app.controller('timetableCtrl', function($scope,UserFactory, TimetableFactory, $location, $cookieStore) {
 	
     console.log('Je suis dans timetableCtrl');
 	$scope.error='';
 	$scope.date=new Date();
-	$scope.classe=getSession("classe");
+	$scope.classe=$cookieStore.get('classe');
 	$scope.timetable=false;
 	
 	$scope.dateChanged = function(){

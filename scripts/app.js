@@ -3,7 +3,7 @@ document.addEventListener('deviceready', function(){
 }, false);
 
 //Ici on importe tous les plugins nécessaires dans l'application
-var app =angular.module('smartstudent',['ngRoute','ADM-dateTimePicker']);
+var app =angular.module('smartstudent',['ngRoute','ADM-dateTimePicker', 'ngCookies']);
 
 
 //Ici on déclare toutes les routes 
@@ -24,10 +24,3 @@ app.config(function($routeProvider){
 		.when('/notifications', {templateUrl:'inc/notifications.html'})
         .otherwise({redirectTo : '/home'});
 });
-
-function getSession(label){
-	return JSON.parse(window.localStorage.getItem(label));
-}
-function setSession(label, value){
-	window.localStorage.setItem(label, JSON.stringify(value));
-}
