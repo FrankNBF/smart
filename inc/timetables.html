@@ -11,7 +11,7 @@
         <div id="page-content-scroll"><!--Enables this element to be scrolled -->        
             <div class="header-clear"></div>
 
-            <div class="content-strip">
+            <div class="content-strip" style="padding-top: 10px; padding-bottom: 15px; margin-bottom: 20px;">
                 <div class="strip-content">
                     <h4>{{ classe.LIBELLE }}</h4>
                     <p>See your class timetable</p>
@@ -20,17 +20,15 @@
                 <div class="overlay"></div>
                 <img class="preload-image" data-original="images/pictures/1.jpg" alt="img">
             </div>
-            <div class="content">
-                <div class="decoration"></div>
-            </div>
             <div class="content-fullscreen" style="min-height:350px;"> 
 				<adm-dtp ng-model='date' full-data='date_details' options='{calType: "gregorian", format: "DD/MM/YYYY"}' on-datechange="dateChanged()">
 					<!-- attributes name are important, not tags name -->
-					<button dtp-open style="width: 160px; height:45px; background-color: #2980b9; color: #FFFFFF;"><i class="fa fa-calendar"></i> Open calendar </button>
+					<button dtp-open style="width: 160px; height:45px; background-color: #2980b9; color: #FFFFFF;"><i class="fa fa-calendar"></i> CHOOSE A DATE </button>
 					<button dtp-close style="width: 30px; height:45px; background-color: #ff7f27; color: #FFFFFF; margin-left:-10px;"><i class="fa fa-close"></i></button>
-					&nbsp;&nbsp;&nbsp;<input type='text' ng-model='date' dtp-input />
+					&nbsp;&nbsp;&nbsp;<input type='text'  style="width:90px; font-weight: bold;" ng-model='date' dtp-input />
 				</adm-dtp>
 				<h5 style="margin-top:20px; padding-left:5px;">List of subjects</h5>
+				
                 <div class="one-half-responsive last-column">      
                     <div class="calendar-hours">
 						<p><small class=" color-red-dark">{{ error }}</small></p>
