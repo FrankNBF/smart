@@ -50,6 +50,28 @@ app.factory('UserFactory', function ($http, $q) {
             return defered.promise;
         },
 		
+		updateUser: function (user) {
+			var defered = $q.defer();
+            $.post(url+'updateUser', user)
+                .success(function (data, status) {
+					result=jQuery.parseJSON(data);
+					console.log(data);
+					if(result.error){
+						factory.error=true;
+						factory.message=result.message;
+					}else{
+						factory.user = result.user;
+					}
+                    defered.resolve(factory)
+                })
+                .error(function (data, status) {
+					factory.error=true;
+					factory.message='Error! No connexion to server.';
+					defered.resolve(factory);
+                })
+            return defered.promise;
+        },
+		
 		getStructure:function (source){ 
 			var defered = $q.defer();
             $.post(url+'getStructure', source)

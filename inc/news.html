@@ -19,7 +19,7 @@
 				<img class="preload-image" data-original="images/pictures/1.jpg" alt="img">
 			</div>
 			
-			<div class="content">
+			<div class="content" style="min-height:500px;">
 				<div class="decoration"></div>    
 				<div class="pageapp-timeline-2">
 					<div class="timeline-item" ng-repeat="(key, item) in news | orderBy:'START_DATE'">
@@ -28,7 +28,7 @@
 						</div>
 						<div class="timeline-text">
 							<h4 class="title"><a href="#news/{{item.ID_ANNONCE}}"> {{ item.TITRE }}</a></h4>
-							<em class="subtitle">{{ item.START_DATE }} | {{item.ID_UNIVERSITE}}</em>
+							<em class="subtitle">{{ item.START_DATE }} | {{item.CHEMIN}}</em>
 							<p>{{item.RESUME}}</p>
 						</div>
 					</div>

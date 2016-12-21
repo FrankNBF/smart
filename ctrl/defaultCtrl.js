@@ -24,6 +24,7 @@ app.controller('eventsCtrl', function($scope,UserFactory,EventsFactory,$location
 	$scope.getEvents = function(){
 		var source ={
 			'type': 'Event',
+			'classe': getSession('classe').ID_CLASSE,
 		};
 		res =  EventsFactory.getEvents(source).then(function(response) {
 			if(response.getError()){
@@ -59,10 +60,11 @@ app.controller('newsCtrl', function($scope,UserFactory,EventsFactory,$location) 
     console.log('Je suis dans newsCtrl');
 	
 	$scope.news=EventsFactory.news;
-	$scope.classe=UserFactory.classe;
+	$scope.classe=getSession("classe");
 	$scope.getNews = function(){
 		var source ={
 			'type': 'News',
+			'classe': getSession('classe').ID_CLASSE,
 		};
 		res =  EventsFactory.getEvents(source).then(function(response) {
 			if(response.getError()){
@@ -89,7 +91,7 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 	$scope.university=false;
 	$scope.faculty=false;
 	$scope.department=false;
-	$scope.classe=false;
+	$scope.classe=getSession('classe');
 	$scope.titre='CHOOSE AN UNIVERSITY';
 	
 	$scope.init = function () {
@@ -119,6 +121,19 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 				}
 			});
 		}
+    };
+	
+	$scope.updateAccount = function(){
+		that.updateResult =  UserFactory.updateUser($scope.user).then(function(response) {
+			if(response.getError()){
+				$scope.error = response.getMessage();
+				$scope.initError();
+			}else{
+				window.localStorage.removeItem("user");
+				setSession("user", UserFactory.getUser());
+				$location.url('/user');
+			}
+		});
     };
 	
 	$scope.choiceUniv = function(id){
@@ -232,15 +247,16 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 		window.localStorage.removeItem("classe");
 		$location.url('/home');
     };
+	
 });
 
 
 /* ------------------------- Controleur de gestion des emplois de temps ----------------------------------------*/
-app.controller('timetableCtrl', function($scope,UserFactory, TimetableFactory, $location) {
+app.controller('timetableCtrl', function($scope,TimetableFactory, $location) {
 	
     console.log('Je suis dans timetableCtrl');
 	$scope.error='';
-	$scope.date=new Date();
+	$scope.date=getdate(new Date());
 	$scope.classe=getSession("classe");
 	$scope.timetable=false;
 	
@@ -253,14 +269,17 @@ app.controller('timetableCtrl', function($scope,UserFactory, TimetableFactory, $
 			if(response.getError()){
 				$scope.error = response.getMessage();
 				$scope.initError();
+				$scope.timetable=false;
 			}else{
 				$scope.timetable=TimetableFactory.timetables;
+				$scope.error='';
 			}
 		});
     };
 	
 	$scope.initError = function(){
-		UserFactory.error=false;
-		UserFactory.message=false;
+		TimetableFactory.error=false;
+		TimetableFactory.message=false;
     };
+	$scope.dateChanged();
 });

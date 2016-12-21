@@ -9,7 +9,7 @@
 
     <div class="modal-menu-background modal-menu-dark-background"></div>
     
-    <div id="page-content">
+    <div id="page-content" ng-controller="userCtrl">
         <div id="page-content-scroll"><!--Enables this element to be scrolled -->        
             <div class="header-clear"></div>
 
@@ -28,8 +28,8 @@
                 <div class="one-half-responsive">
                     <div class="user-item">
                         <img class="user-item-image preload-image" data-original="images/pictures/1t.jpg" alt="img">
-                        <h5>Master 1</h5>
-                        <em>Université Douala, Science, MIAGE</em>
+                        <h5>{{ classe.LIBELLE }}</h5>
+                        <em>{{ classe.CHEMIN }}</em>
                     </div>  
                 </div>
                 <div class="decoration hide-if-responsive"></div>
@@ -40,14 +40,12 @@
                         <span></span>
                         <em>Fr</em>
                     </a>
-                    <em class="switch-box-subtitle">
+                    <em class="switch-box-subtitle" style="line-height: 20px;">
                         Now your are using english and you can choose frensh only by click on the toogle belong.
                     </em>
-                    <div class="switch-box-content">
-                        <p class="no-bottom">
-                            You have choose Frensh but the change will be effective after this form validation.
-                        </p>
-                    </div>
+                    <em class="switch-box-content" style="line-height: 20px;">
+                        You have choose Frensh but the change will be effective after this form validation.
+                    </em>
                 </div>
                 <div class="decoration hide-if-responsive"></div>
                 <div class="container">
@@ -55,21 +53,26 @@
                         <h5>Update your informations</h5>
                         <div class="icon-field">
                             <i class="fa fa-user"></i>
-                            <input class="text-field green-field" onfocus="if (this.value=='Good Field') this.value = ''" onblur="if (this.value=='') this.value = 'Good Field'" type="text" value="Good Field">
+                            <input class="text-field green-field" type="text" ng-model="user.NOM" placeholder="Enter your nickname">
                         </div>
-                        <div class="icon-field">
-                            <i class="fa fa-lock"></i>
-                            <input class="text-field green-field" onfocus="if (this.value=='password') this.value = ''" onblur="if (this.value=='') this.value = 'password'" type="password" value="password">
+						<div class="icon-field">
+                            <i class="fa fa-user"></i>
+                            <input class="text-field green-field" type="text" ng-model="user.PRENOM" placeholder="Enter your firstname">
                         </div>
-                        <div class="icon-field">
+						<div class="icon-field">
+                            <i class="fa fa-map-marker"></i>
+                            <input class="text-field green-field" type="text" ng-model="user.ADRESSE" placeholder="Enter your adresse">
+                        </div>
+						<div class="icon-field">
+                            <i class="fa fa-phone"></i>
+                            <input class="text-field green-field" type="text" ng-model="user.PHONE" placeholder="Enter your phone number">
+                        </div>
+						<div class="icon-field">
                             <i class="fa fa-envelope"></i>
-                            <input class="text-field red-field" onfocus="if (this.value=='Bad Field') this.value = ''" onblur="if (this.value=='') this.value = 'Bad Field'" type="text"  value="Bad Field">
+                            <input class="text-field green-field" type="text" ng-model="user.EMAIL" placeholder="Enter your email">
                         </div>
-                        <div class="icon-field">
-                            <i class="fa fa-unlock"></i>
-                            <input class="text-field red-field" onfocus="if (this.value=='password') this.value = ''" onblur="if (this.value=='') this.value = 'password'" type="password" value="password">
-                        </div>
-                    </div>           
+                    </div> 
+					<a ng-click="updateAccount()" class="button button-orange button-fullscreen full-bottom">SAVE CHANGE</a>
                     <div class="decoration hide-if-responsive"></div>
 
                 </div>

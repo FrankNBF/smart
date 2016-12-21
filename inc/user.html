@@ -26,7 +26,7 @@
                     <div class="container no-bottom">
                         <div class="sidebar-right-small">
                             <img data-original="images/pictures/2.jpg" class="preload-image responsive-image hide-if-mobile half-bottom" alt="img">
-                            <h3 class="no-bottom">User Frank NBF</h3>
+                            <h3 class="no-bottom">{{ user.NOM  }}  {{ user.PRENOM  }}</h3>
                             <p>Student</p>
                             <div class="decoration"></div>
                             <ul class="font-icon-list no-bottom">
@@ -46,8 +46,7 @@
                             <div class="sidebar-left-small">
                                 <h4>Classes</h4>
                                 <ul>
-                                    <li>Université de Douala, Sciences, MIAGE, Master 1</li>
-                                    <li>Université de Douala, Sciences, MIAGE, Master 2</li>
+                                    <li> {{ classe.CHEMIN }} / {{ classe.LIBELLE }}</li>
                                 </ul>
                             </div>
                         </div>
