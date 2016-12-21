@@ -1,4 +1,4 @@
-var url = 'http://localhost/smartstudent/admin/webservice/';
+var url = 'http://cbatconsult.com/smartstudent/webservice/';
 
 
 
