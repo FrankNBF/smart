@@ -92,7 +92,7 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 	$scope.faculty=false;
 	$scope.department=false;
 	$scope.classe=getSession('classe');
-	$scope.titre='CHOOSE AN UNIVERSITY';
+	$scope.titre='CHOOSE YOUR UNIVERSITY';
 	
 	$scope.init = function () {
 		if($scope.user) {
@@ -149,9 +149,9 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 				$scope.error = response.getMessage();
 				$scope.initError();
 			}else{
-				$scope.items=UserFactory.faculties;
-				$('#universites').hide(1000);
-				$('#faculties').show(1000);
+				$scope.items=response.faculties;
+				$('#universites').hide(500);
+				$('#faculties').show(500);
 			}
 		});
     };
@@ -170,9 +170,9 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 				$scope.error = response.getMessage();
 				$scope.initError();
 			}else{
-				$scope.items=UserFactory.departments;
-				$('#faculties').hide(1000);
-				$('#departments').show(1000);
+				$scope.items=response.departments;
+				$('#faculties').hide(500);
+				$('#departments').show(500);
 			}
 		});
     };
@@ -192,9 +192,9 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 				$scope.error = response.getMessage();
 				$scope.initError();
 			}else{
-				$scope.items=UserFactory.classes;
-				$('#departments').hide(1000);
-				$('#classes').show(1000);
+				$scope.items=response.classes;
+				$('#departments').hide(500);
+				$('#classes').show(500);
 			}
 		});
     };
@@ -258,7 +258,7 @@ app.controller('timetableCtrl', function($scope,TimetableFactory, $location) {
 	$scope.error='';
 	$scope.date=getdate(new Date());
 	$scope.classe=getSession("classe");
-	$scope.timetable=false;
+	$scope.timetable=TimetableFactory.timetables;
 	
 	$scope.dateChanged = function(){
 		var source ={
@@ -271,9 +271,11 @@ app.controller('timetableCtrl', function($scope,TimetableFactory, $location) {
 				$scope.initError();
 				$scope.timetable=false;
 			}else{
-				$scope.timetable=TimetableFactory.timetables;
+				$scope.timetable=response.timetables;
 				$scope.error='';
+				loadPage();
 			}
+			
 		});
     };
 	
@@ -282,4 +284,34 @@ app.controller('timetableCtrl', function($scope,TimetableFactory, $location) {
 		TimetableFactory.message=false;
     };
 	$scope.dateChanged();
+});
+
+
+/* ------------------------- Controleur de gestion des notifications ----------------------------------------*/
+app.controller('notificationsCtrl', function($scope,NotificationsFactory, $location) {
+	
+    console.log('Je suis dans notificationsCtrl');
+	$scope.error='';
+	$scope.notifications=NotificationsFactory.notifications;
+	
+	$scope.getNotifications = function(){
+		var source ={
+			'user': getSession("user").ID_ETUDIANT,
+		};
+		res =  NotificationsFactory.getNotifications(source).then(function(response) {
+			if(response.getError()){
+				$scope.error = response.getMessage();
+				$scope.initError();
+			}else{
+				$scope.notifications=response.notifications;
+				loadPage();
+			}
+		});
+    };
+	$scope.getNotifications();
+	
+	$scope.initError = function(){
+		NotificationsFactory.error=false;
+		NotificationsFactory.message=false;
+    };
 });

@@ -1,4 +1,4 @@
-<div class="has-cover">
+<div class="has-cover" ng-controller="notificationsCtrl">
     <div class="gallery-fix"></div><!-- Fix Gallery next/prev error on Android -->
     <div class="sidebar-tap-close"></div><!-- Overlay for content to close Sidebar -->
 
@@ -19,57 +19,19 @@
                 <div class="overlay"></div>
                 <img class="preload-image" data-original="images/pictures/3.jpg" alt="img">
             </div>
-            <div class="content">
+            <div class="content" style="min-height: 387px;">
                 <div class="decoration"></div>
-                <div class="activity-item one-half-responsive">
-                    <i class="fa fa-check bg-green-dark activity-item-icon"></i>
-                    <h5>Success Update</h5>
-                    <em>October 15, 2023</em>
-                    <p class="half-bottom">
-                        Our framework is updated and now running the latest and most optimized code possible.
-                        <a class="full-bottom read-more-right" href="">Read More <i class="fa fa-angle-right"></i></a>
-                    </p>
-                </div>
-                <div class="decoration hide-if-responsive"></div>        
-                <div class="activity-item one-half-responsive last-column">
-                    <i class="fa fa-times bg-red-dark activity-item-icon"></i>
-                    <h5>Error Update</h5>
-                    <em>October 15, 2023</em>
-                    <p class="half-bottom">
-                        Our framework is updated and now running the latest and most optimized code possible.
-                        <a class="full-bottom read-more-right" href="">Read More <i class="fa fa-angle-right"></i></a>
-                    </p>
-                </div>        
-                <div class="decoration"></div>        
-                <div class="activity-item one-half-responsive">
-                    <i class="fa fa-info bg-blue-dark activity-item-icon"></i>
-                    <h5>Information Update</h5>
-                    <em>October 15, 2023</em>
-                    <p class="half-bottom">
-                        Our framework is updated and now running the latest and most optimized code possible.
-                        <a class="full-bottom read-more-right" href="">Read More <i class="fa fa-angle-right"></i></a>
-                    </p>
-                </div>
-                <div class="decoration hide-if-responsive"></div>        
-                <div class="activity-item one-half-responsive last-column">
-                    <i class="fa fa-exclamation bg-orange-dark activity-item-icon"></i>
-                    <h5>Warning Update</h5>
-                    <em>October 15, 2023</em>
-                    <p class="half-bottom">
-                        Our framework is updated and now running the latest and most optimized code possible.
-                        <a class="full-bottom read-more-right" href="">Read More <i class="fa fa-angle-right"></i></a>
-                    </p>
-                </div>                
-                <div class="decoration"></div>        
-                <div class="activity-item one-half-responsive">
-                    <i class="fa fa-facebook facebook-color activity-item-icon"></i>
-                    <h5>Facebook Page Updated</h5>
-                    <em>October 15, 2023</em>
-                    <p class="half-bottom">
-                        Our framework is updated and now running the latest and most optimized code possible.
-                        <a class="full-bottom read-more-right" href="">Read More <i class="fa fa-angle-right"></i></a>
-                    </p>
-                </div>
+				<div ng-repeat="(key, item) in notifications | orderBy:'START_DATE'">
+					<div class="activity-item one-half-responsive">
+						<i class="fa {{ item.TYPE }} activity-item-icon"></i>
+						<h5>{{ item.OBJET }}</h5>
+						<em>{{ item.DATE }}</em>
+						<p class="half-bottom">
+							{{ item.MESSAGE }}
+						</p>
+					</div>
+					<div class="decoration hide-if-responsive"></div> 
+				</div>
             </div>
 
             <ng-include src="footer.url"></ng-include>

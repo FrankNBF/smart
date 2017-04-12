@@ -4150,13 +4150,13 @@ calendar*{
 @media(min-width:331px){
     .pageapp-login .pageapp-login-logo{
         width:100px;
-        height:80px;
+        height:100px;
         background-size:cover;
     }
 }
 
 .pageapp-login .pageapp-login-logo{
-    background-image:url(../images/pages-logo-light.png);
+    background-image:url(../images/logo.png);
     margin-left:auto;
     margin-right:auto;
     margin-top: -20px;

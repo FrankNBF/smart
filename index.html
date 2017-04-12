@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="images/icon.png">
 	
     
-    <title>.:: SmartStudent ::.</title>
+    <title>.:: SUKOULOU ::.</title>
 
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/menu.css">
@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="scripts/angular-adm-datepicker/ADM-dateTimePicker.css" />
 	
     <script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/cordova.js"></script>
     <script type="text/javascript" src="scripts/plugins.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
 	
@@ -27,7 +28,7 @@
     
 </head>
 
-<body class="has-cover" ng-controller="appCtrl">
+<body class="has-cover" ng-controller="appCtrl" onload="onLoad">
 	<div class="loading-overlay">
 		Please wait a moment ...
 	</div>
@@ -54,6 +55,15 @@
 				$('.loading-overlay').hide();
 			});
 		});
+		function onLoad() {
+			document.addEventListener("deviceready", onDeviceReady, false);
+		}
+		function onDeviceReady() {
+			document.addEventListener("backbutton", onBackKeyDown, false);
+		}
+		function onBackKeyDown() {
+			return false;
+		}
 	</script>
 </body>
 </html>

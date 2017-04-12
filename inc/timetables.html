@@ -32,7 +32,7 @@
                 <div class="one-half-responsive last-column">      
                     <div class="calendar-hours" style="padding-top: 5px;">
 						<p style="margin-bottom:0;">&nbsp;&nbsp;<small class=" color-red-dark">{{ error }}</small></p>
-                        <a href="" class="calendar-hour calendar-hour-taken" style="height: 80px; overflow: hidden;" ng-repeat="(key, item) in timetable | orderBy:'HEURE_DEBUT'">
+                        <a href="" class="calendar-hour calendar-hour-taken" style="height: auto;" ng-repeat="(key, item) in timetable | orderBy:'HEURE_DEBUT'">
                             <strong class="cal-from">{{item.HEURE_DEBUT}}</strong>
                             <strong class="cal-to">  {{item.HEURE_FIN}}</strong>
                             <h4>{{item.MATIERE}}</h4>

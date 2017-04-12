@@ -1,4 +1,4 @@
-var url = 'http://cbatconsult.com/smartstudent/webservice/';
+var url = 'http://sukoulou.com/admin/webservice/';
 
 
 
@@ -221,7 +221,7 @@ app.factory('TimetableFactory', function ($http, $q) {
 		// Définition des attributs de la l'entité(factory)
 		error:false,
 		message:false,
-		timetables:false,
+		timetables:true,
 		
 		// Définition des méthodes de la l'entité(factory)
 		getError:function (){ return factory.error; },
@@ -238,7 +238,48 @@ app.factory('TimetableFactory', function ($http, $q) {
 						factory.error=true;
 						factory.message=result.message;
 					}else{
+						
 						factory.timetables = result.data;
+					}
+                    defered.resolve(factory)
+                })
+                .error(function (data, status) {
+					factory.error=true;
+					factory.message='Error! No connexion to server.';
+					defered.resolve(factory);
+                })
+            return defered.promise;
+        },
+	}
+    return factory;
+});
+
+
+/* ------------------------- Factory de gestion des notifications ----------------------------------------*/
+app.factory('NotificationsFactory', function ($http, $q) {
+    factory = {
+		// Définition des attributs de la l'entité(factory)
+		error:false,
+		message:false,
+		notifications:true,
+		
+		// Définition des méthodes de la l'entité(factory)
+		getError:function (){ return factory.error; },
+		
+		getMessage:function (){ return factory.message; },
+		
+        getNotifications: function (source) {
+			var defered = $q.defer();
+            $.post(url+'getNotifications', source)
+                .success(function (data, status) {
+					console.log(data);
+					result=jQuery.parseJSON(data);
+					if(result.error){
+						factory.error=true;
+						factory.message=result.message;
+					}else{
+						
+						factory.notifications = result.data;
 					}
                     defered.resolve(factory)
                 })
