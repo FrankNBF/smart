@@ -21,14 +21,14 @@
 			<div class="content" style="min-height:500px;">  
 				<div class="page-blog">
 					<div class="page-blog-list">
-						<strong class="page-blog-tags">Create on: <a href="">{{row.START_DATE}}</a></strong>
+						<strong class="page-blog-tags">{{ _lang.create_on }}: <a href="">{{row.START_DATE}}</a></strong>
 						<div class="page-blog-content">
 							<div class="decoration"></div>  
 							<div class="dropcaps-1" ng-bind-html="description"></div>
 							<div class="clear"></div>
 						</div>
 						<br/>
-						<a ng-click="doTheBack()" class="button button-orange button-fullscreen full-bottom">GO BACK</a>
+						<a ng-click="doTheBack()" class="button button-orange button-fullscreen full-bottom">{{ _lang.go_back }}</a>
 					</div>
 				</div>
 				<div class="decoration"></div>
@@ -37,7 +37,7 @@
 			<ng-include src="footer.url"></ng-include>
             <div class="footer-clear disabled"></div>
         </div>
-        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>{{ _lang.back_top }}</a>
     </div>
 </div>
 

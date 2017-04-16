@@ -15,15 +15,15 @@
 
             <div class="content-strip">
                 <div class="strip-content">
-                    <h4>Setting</h4>
-                    <p>Manage your informations, classes and language</p>
+                    <h4>{{ _lang.menu_setting }}</h4>
+                    <p>{{ _lang.setting_text }}</p>
                     <i class="fa fa-cogs"></i>
                 </div>
                 <div class="overlay"></div>
                 <img class="preload-image" data-original="images/pictures/3.jpg" alt="img">
             </div>
             <div class="content">
-                <h4>Setting your classes</h4>
+                <h4>{{ _lang.setting_class }}</h4>
                 <div class="decoration"></div>
                 <div class="one-half-responsive">
                     <div class="user-item">
@@ -33,46 +33,46 @@
                     </div>  
                 </div>
                 <div class="decoration hide-if-responsive"></div>
-                <div class="container switch-box">
-                    <h4>Choose your language</h4>
-                    <a href="#" class="switch switch-1 switch-1-on">
-                        <em>En</em>
+                <div class="container switch-box" ng-init="showLanguage()">
+                    <h4>{{ _lang.choose_lang }}</h4>
+                    <a href="#" class="switch switch-1 switch-1-on" ng-click="switchLanguage()">
+                        <em>{{ lang1 }}</em>
                         <span></span>
-                        <em>Fr</em>
+                        <em>{{ lang2 }}</em>
                     </a>
                     <em class="switch-box-subtitle" style="line-height: 20px;">
-                        Now your are using english and you can choose frensh only by click on the toogle belong.
+                        {{ language1 }}
                     </em>
                     <em class="switch-box-content" style="line-height: 20px;">
-                        You have choose Frensh but the change will be effective after this form validation.
+                        {{ language2 }}
                     </em>
                 </div>
                 <div class="decoration hide-if-responsive"></div>
                 <div class="container">
                     <div class="one-third-responsive full-bottom">
-                        <h5>Update your informations</h5>
+                        <h5>{{ _lang.update_infos }}</h5>
                         <div class="icon-field">
                             <i class="fa fa-user"></i>
-                            <input class="text-field green-field" type="text" ng-model="user.NOM" placeholder="Enter your nickname">
+                            <input class="text-field green-field" type="text" ng-model="user.NOM" placeholder="{{ _lang.enter_nickname }}">
                         </div>
 						<div class="icon-field">
                             <i class="fa fa-user"></i>
-                            <input class="text-field green-field" type="text" ng-model="user.PRENOM" placeholder="Enter your firstname">
+                            <input class="text-field green-field" type="text" ng-model="user.PRENOM" placeholder="{{ _lang.enter_first }}">
                         </div>
 						<div class="icon-field">
                             <i class="fa fa-map-marker"></i>
-                            <input class="text-field green-field" type="text" ng-model="user.ADRESSE" placeholder="Enter your adresse">
+                            <input class="text-field green-field" type="text" ng-model="user.ADRESSE" placeholder="{{ _lang.enter_adresse }}">
                         </div>
 						<div class="icon-field">
                             <i class="fa fa-phone"></i>
-                            <input class="text-field green-field" type="text" ng-model="user.PHONE" placeholder="Enter your phone number">
+                            <input class="text-field green-field" type="text" ng-model="user.PHONE" placeholder="{{ _lang.enter_phone }}">
                         </div>
 						<div class="icon-field">
                             <i class="fa fa-envelope"></i>
-                            <input class="text-field green-field" type="text" ng-model="user.EMAIL" placeholder="Enter your email">
+                            <input class="text-field green-field" type="text" ng-model="user.EMAIL" placeholder="{{ _lang.enter_email }}">
                         </div>
                     </div> 
-					<a ng-click="updateAccount()" class="button button-orange button-fullscreen full-bottom">SAVE CHANGE</a>
+					<a ng-click="updateAccount()" class="button button-orange button-fullscreen full-bottom">{{ _lang.save_change }}</a>
                     <div class="decoration hide-if-responsive"></div>
 
                 </div>
@@ -82,6 +82,6 @@
             <ng-include src="footer.url"></ng-include>
             <div class="footer-clear disabled"></div>
         </div>
-        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>{{ _lang.back_top }}</a>
     </div>
 </div>

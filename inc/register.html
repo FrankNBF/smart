@@ -13,39 +13,38 @@
 
                 <div class="pageapp-login">
 					<a href="#" class="pageapp-login-logo" style="margin-top:10px;"></a>
-                    <h3 class="pageapp-login-text" style="margin:15px auto;">CREATE ACCOUNT </h3>
+                    <h3 class="pageapp-login-text" style="margin:15px auto;">{{ _lang.create_account }}</h3>
                     <div class="spacer"></div>
                     <form method="post" name="registerForm"  ng-submit="registerUser()">
 						<div class="cover-field">
                             <i class="fa fa-key"></i>
-                            <input type="text" placeholder="Enter your matricule" ng-model="matricule" required>
+                            <input type="text" placeholder="{{ _lang.enter_matricule }}" ng-model="matricule" required>
                         </div>
                         <div class="cover-field">
                             <i class="fa fa-user"></i>
-                            <input type="text" placeholder="Enter your name" ng-model="name" required>
+                            <input type="text" placeholder="{{ _lang.enter_nickname }}" ng-model="name" required>
                         </div>
                         <div class="cover-field">
                             <i class="fa fa-envelope-o"></i>
-                            <input type="email" placeholder="Enter your email" ng-model="email" required >
+                            <input type="email" placeholder="{{ _lang.enter_email }}" ng-model="email" required >
                         </div>
 						<div class="cover-field">
                             <i class="fa fa-phone"></i>
-                            <input type="number" placeholder="Enter your phone" ng-model="phone" required >
+                            <input type="number" placeholder="{{ _lang.enter_phone }}" ng-model="phone" required >
                         </div>
                         <div class="cover-field">
                             <i class="fa fa-lock"></i>
-                            <input type="password" placeholder="Enter your password" ng-model="password" required>
+                            <input type="password" placeholder="{{ _lang.enter_password }}" ng-model="password" required>
                         </div>
                         <div class="cover-field">
                             <i class="fa fa-unlock-alt"></i>
-                            <input type="password" placeholder="Confirm your password" ng-model="password2" required>
+                            <input type="password" placeholder="{{ _lang.confirm_password }}" ng-model="password2" required>
                         </div>
                         <!--<a href="#" type="submit" class="pageapp-login-button button button-orange"><i class="fa fa-arrow-right"></i>Register</a>-->
                         <p><small class=" color-red-dark">{{ error }}</small></p>
-						<input type="submit" value="Next >>" class="pageapp-login-button button button-orange" style="margin-bottom:0">
+						<input type="submit" value="{{ _lang.next }} >>" class="pageapp-login-button button button-orange" style="margin-bottom:0">
                     </form>
-					<p><a class="color-white" href="#home"><small>Already have an account ?</small></a></p>
-					
+					<p><a class="color-white" href="#home"><small>{{ _lang.already_account }}</small></a></p>
                 </div>
 				
             </div>
@@ -60,7 +59,7 @@
         </div>
     </div>
 	
-    <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+    <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>{{ _lang.back_top }}</a>
 </div>
 <style>
 	p {

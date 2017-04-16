@@ -1,4 +1,5 @@
-app.controller('appCtrl', function($scope) {
+app.controller('appCtrl', function($scope, $http, $rootScope) {
+	$scope._lang = getSession('_lang');
 	$scope.header_menu ={
         name:'header',
         url  :'inc/header_menu.html'
@@ -7,13 +8,25 @@ app.controller('appCtrl', function($scope) {
         name:'footer',
         url  :'inc/footer.html'
     }
+	
+	$rootScope.$on("LANGUAGE", function(){
+           $scope.loadLanguage();
+	});
+	
 	$scope.$on('$viewContentLoaded', function(event){ 
 		console.log('view is loaded and ready to be use');
 		loadPage();
 	});
+	
 	$scope.doTheBack = function() {
 	  window.history.back();
 	};	
+	
+	$scope.loadLanguage = function(){
+		if(getSession('user')) lang = getSession('user').LANG; else lang = 'En';
+		$http.get('lang/'+lang+'.json').success(function (data, status) { console.log(data); $scope._lang=data; });
+		setSession('_lang', $scope._lang);
+    };
 });
 
 
@@ -81,7 +94,7 @@ app.controller('newsCtrl', function($scope,UserFactory,EventsFactory,$location) 
 
 
 /* ------------------------- Controleur de gestion des utilisateurs ----------------------------------------*/
-app.controller('userCtrl', function($scope,UserFactory,$location) {
+app.controller('userCtrl', function($scope,UserFactory,$location,$rootScope) {
 	console.log('Je suis dans USERCTRL');
     var that = this;
 	
@@ -93,6 +106,10 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 	$scope.department=false;
 	$scope.classe=getSession('classe');
 	$scope.titre='CHOOSE YOUR UNIVERSITY';
+	$scope.lanquage1='';
+	$scope.lanquage2='';
+	$scope.lang1='';
+	$scope.lang2='';
 	
 	$scope.init = function () {
 		if($scope.user) {
@@ -134,6 +151,28 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 				$location.url('/user');
 			}
 		});
+    };
+	
+	$scope.showLanguage = function(){
+		if($scope.user.LANG == 'En') {
+			$scope.language1 ='Vous pouvez changer la langue pour le Français en cliquant ci-dessus.';
+			$scope.language2 ='La nouvelle langue sera prise en compte après reconnexion.';
+			$scope.lang1='En';
+			$scope.lang2='Fr';
+		} else {
+			$scope.language1 ='You can change the language for the English by clicking above.';
+			$scope.language2 ='The new language will be taken into account after reconnection.';
+			$scope.lang1='Fr';
+			$scope.lang2='En';
+		}
+    };
+	
+	$scope.switchLanguage = function(){
+		if($scope.user.LANG == 'En') {
+			$scope.user.LANG='Fr';
+		} else {
+			$scope.user.LANG='En';
+		}
     };
 	
 	$scope.choiceUniv = function(id){
@@ -231,6 +270,7 @@ app.controller('userCtrl', function($scope,UserFactory,$location) {
 				setSession("user", UserFactory.getUser());
 				setSession("classe", UserFactory.getUserClasse());
 				console.log(getSession("user").EMAIL);
+				$rootScope.$emit("LANGUAGE", {});
 				$location.url('/menu');
 			}
 		});

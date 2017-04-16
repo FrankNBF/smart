@@ -1,6 +1,6 @@
 <div class="landing-homepage" ng-controller="userCtrl">
     <div class="landing-dark">
-        <div class="landing-wrapper">
+        <div class="landing-wrapper" style="text-transform: uppercase;">
             <div class="landing-header no-bottom">
                 <a class="landing-header-logo" href="#">SUKO<span>ULOU</span></a>
                 <div class="landing-header-icons">
@@ -10,43 +10,43 @@
             <div class="content no-bottom"><div class="deco"></div></div>
 
             <img src="images/logo.png" style="margin:auto; height:100px;"/>
-            <h5 style="text-align:center; color:#FFF; margin-bottom:30px;">MAIN MENU </h5>
+            <h5 style="text-align:center; color:#FFF; margin-bottom:30px;"> {{ _lang.menu_titre }} </h5>
             <!-- Left Top Menu -->
             <ul>
                 <li>
                     <a href="#timetables">
                         <i class="fa fa-calendar bg-red-dark"></i>
-                        <em>TIMETABLE</em>
+                        <em>{{ _lang.menu_timetable }}</em>
                     </a>
                 </li>
                 <li>
                     <a href="#events">
                         <i class="fa fa-bullhorn bg-green-dark"></i>
-                        <em>EVENTS</em>
+                        <em>{{ _lang.menu_events }}</em>
                     </a>
                 </li>
                 <li>
                     <a href="#news">
                         <i class="fa fa-bell bg-blue-dark"></i>
-                        <em>NEWS</em>
+                        <em>{{ _lang.menu_news }}</em>
                     </a>
                 </li>
                 <li>
                     <a href="#user">
                         <i class="fa fa-user bg-magenta-dark"></i>
-                        <em>MY PROFILE</em>
+                        <em>{{ _lang.menu_profile }}</em>
                     </a>
                 </li>
                 <li>
                     <a href="#reglages">
                         <i class="fa fa-cogs bg-orange-dark"></i>
-                        <em>SETTING</em>
+                        <em>{{ _lang.menu_setting }}</em>
                     </a>
                 </li>
                 <li>
                     <a href="" ng-click="logoutUser()">
                         <i class="fa fa-power-off bg-night-dark"></i>
-                        <em>LOG OUT</em>
+                        <em>{{ _lang.menu_logout}}</em>
                     </a>
                 </li>
             </ul>

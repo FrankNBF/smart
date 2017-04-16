@@ -17,7 +17,7 @@
                             <p class="half-bottom">
 							{{item.RESUME}}
                             </p>
-                            <a href="#events/{{item.ID_ANNONCE}}" class="button-more-cover">Read More</a>
+                            <a href="#events/{{item.ID_ANNONCE}}" class="button-more-cover">{{ _lang.read_more }}</a>
                             <a href="#events/{{item.ID_ANNONCE}}" class="button-share-cover show-share-bottom" style="font-size:40px;"><i class="color-white fa fa-sort"></i></a>
                         </div>
                         <div class="overlay overlay-news"></div>
@@ -28,7 +28,7 @@
             <div class="content" style="min-height:500px;">
                 <div class="decoration"></div>
                 <div class="heading-badge border-red-dark">
-                    <h3 class="bg-red-dark">Rescent news</h3>
+                    <h3 class="bg-red-dark">{{ _lang.recents_news }}</h3>
                 </div>
                 <div class="thumb-layout">
                     <div  ng-repeat="(key, item) in events | orderBy:'START_DATE'">
@@ -38,13 +38,13 @@
 						</a>
 					</div>
                 </div>
-				<a href="" class="button button-orange button-fullscreen full-bottom"><i class="fa fa-recycle"></i> SEE MORE</a>
+				<!-- <a href="" class="button button-orange button-fullscreen full-bottom"><i class="fa fa-recycle"></i> SEE MORE</a> -->
             </div>
 
 			<ng-include src="footer.url"></ng-include>
             <div class="footer-clear disabled"></div>
         </div>
-        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i> {{ _lang.back_top }}</a>
     </div>
 </div>
 

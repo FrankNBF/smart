@@ -18,28 +18,28 @@
 							<div class="user-item" ng-repeat="(key, item) in items | orderBy:'LIBELLE'">
 								<h5 class="color-white">{{item.ABREVIATION}}</h5>
 								<em>{{item.LIBELLE}}</em>
-								<button class="user-item-icon-3 bg-green-dark scale-hover" ng-click="choiceUniv(item.ID_UNIVERSITE)" type="button">Follow</button>
+								<button class="user-item-icon-3 bg-green-dark scale-hover" ng-click="choiceUniv(item.ID_UNIVERSITE)" type="button">{{ _lang.follow }}</button>
 							</div>
 						</div>
 						<div id='faculties'>
 							<div class="user-item" ng-repeat="(key, item) in items | orderBy:'LIBELLE'">
 								<h5 class="color-white">{{item.ABREVIATION}}</h5>
 								<em>{{item.LIBELLE}}</em>
-								<button type="button" class="user-item-icon-3 bg-green-dark scale-hover" ng-click="choiceFac(item.ID_FACULTE)">Follow</button>
+								<button type="button" class="user-item-icon-3 bg-green-dark scale-hover" ng-click="choiceFac(item.ID_FACULTE)">{{ _lang.follow }}</button>
 							</div>
 						</div>
 						<div id='departments'>
 							<div class="user-item" ng-repeat="(key, item) in items | orderBy:'LIBELLE'">
 								<h5 class="color-white">{{item.ABREVIATION}}</h5>
 								<em>{{item.LIBELLE}}</em>
-								<button type="button" class="user-item-icon-3 bg-green-dark scale-hover" ng-click="choiceDep(item.ID_DEPARTEMENT)">Follow</button>
+								<button type="button" class="user-item-icon-3 bg-green-dark scale-hover" ng-click="choiceDep(item.ID_DEPARTEMENT)">{{ _lang.follow }}</button>
 							</div>
 						</div>
 						<div id='classes'>
 							<div class="user-item" ng-repeat="(key, item) in items | orderBy:'LIBELLE'">
 								<h5 class="color-white">{{item.ABREVIATION}}</h5>
 								<em>{{item.LIBELLE}}</em>
-								<button type="button" class="user-item-icon-3 bg-green-dark scale-hover" ng-click="choiceCla(item.ID_CLASSE)">Follow</button>
+								<button type="button" class="user-item-icon-3 bg-green-dark scale-hover" ng-click="choiceCla(item.ID_CLASSE)">{{ _lang.follow }}</button>
 							</div>
 						</div>
                         <p><small class=" color-red-dark">{{ error }}</small></p>
@@ -61,11 +61,9 @@
 				<div class="swiper-slide cover-slide cover-screen" style="background-image:url(images/slider/1.jpg);">
 					<div class="cover-center">
 						<i class="fa fa-group cover-icon-center cover-icon-round full-bottom"></i>
-						<h3 class="center-text bold uppercase">THANK YOU</h3>
-						<p class="center-text">
-							You can now log in your account and see all the information about your university. Please do not forget to validate your account.
-						</p>
-						<a href="#home" class="button button-cover button-center">Login</a>
+						<h3 class="center-text bold uppercase">{{ _lang.thank }}</h3>
+						<p class="center-text">{{ _lang.thank_text }}</p>
+						<a href="#home" class="button button-cover button-center">{{ _lang.login }}</a>
 					</div>
 					<div class="overlay"></div>
 				</div>
@@ -73,22 +71,18 @@
 				<div class="swiper-slide cover-slide cover-screen" style="background-image:url(images/slider/2.jpg);">
 					<div class="cover-center">
 						<i class="fa fa-calendar cover-icon-center cover-icon-round full-bottom"></i>
-						<h3 class="center-text bold uppercase">VIEW TIMETABLE</h3>
-						<p class="center-text">
-							SmartStudent is usefull in the manage of course, it alerts you on change of your timetable and the location of course.
-						</p>
-						<a href="#home" class="button button-cover button-center">Login</a>
+						<h3 class="center-text bold uppercase">{{ _lang.view_timetable }}</h3>
+						<p class="center-text">{{ _lang.view_timetable_text }}</p>
+						<a href="#home" class="button button-cover button-center">{{ _lang.login }}</a>
 					</div>
 					<div class="overlay"></div>
 				</div>
 				<div class="swiper-slide cover-slide cover-screen" style="background-image:url(images/slider/3.jpg);">
 					<div class="cover-center">
 						<i class="fa fa-comments cover-icon-center cover-icon-round full-bottom"></i>
-						<h3 class="center-text bold uppercase">STAY TUNED !!</h3>
-						<p class="center-text">
-							SmartStudent give you all information about your university, your faculty, your department and your classes.
-						</p>
-						<a href="#home" class="button button-cover button-center">Login</a>
+						<h3 class="center-text bold uppercase">{{ _lang.stay_tuned }}</h3>
+						<p class="center-text"> {{ _lang.stay_tuned_text }} </p>
+						<a href="#home" class="button button-cover button-center">{{ _lang.stay_tuned }}</a>
 					</div>
 					<div class="overlay"></div>
 				</div>
@@ -96,7 +90,7 @@
 		</div>
     </div>
 	
-    <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+    <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i> {{ _lang.back_top }}</a>
 </div>
 <style>
 	p {

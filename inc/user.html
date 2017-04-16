@@ -27,7 +27,7 @@
                         <div class="sidebar-right-small">
                             <img data-original="images/pictures/2.jpg" class="preload-image responsive-image hide-if-mobile half-bottom" alt="img">
                             <h3 class="no-bottom">{{ user.NOM  }}  {{ user.PRENOM  }}</h3>
-                            <p>Student</p>
+                            <p>{{ _lang.student }}</p>
                             <div class="decoration"></div>
                             <ul class="font-icon-list no-bottom">
                                  <li><a href="#"><i class="fa fa-user"></i> {{ user.MATRICULE  }}</a></li>
@@ -40,11 +40,10 @@
                         </div>
                         <div class="decoration hide-if-responsive"></div>
                         <div class="sidebar-left-big">
-                            <h4 class="hide-if-responsive">List of classes</h4>
-                            <p> There you have the list of all the classes that you receive programme for. The format is [School, Faculty, department, class].
-                            </p>
+                            <h4 class="hide-if-responsive">{{ _lang.list_classes }}</h4>
+                            <p> {{ _lang.user_text }} </p>
                             <div class="sidebar-left-small">
-                                <h4>Classes</h4>
+                                <h4>{{ _lang.classes }}</h4>
                                 <ul>
                                     <li> {{ classe.CHEMIN }} / {{ classe.LIBELLE }}</li>
                                 </ul>
@@ -59,6 +58,6 @@
 			
             <div class="footer-clear disabled"></div>
         </div>
-        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>{{ _lang.back_top }}</a>
     </div>
 </div>

@@ -11,8 +11,8 @@
             <div class="header-clear"></div>
 			<div class="content-strip">
 				<div class="strip-content">
-					<h4>Department News</h4>
-					<p>See the news of {{classe.LIBELLE}}</p>
+					<h4>{{ _lang.news_title }}</h4>
+					<p>{{ _lang.see_news }} {{classe.LIBELLE}}</p>
 					<i class="fa fa-clock-o"></i>
 				</div>
 				<div class="overlay"></div>
@@ -32,7 +32,7 @@
 							<p>{{item.RESUME}}</p>
 						</div>
 					</div>
-					<a href="" class="button button-orange button-fullscreen full-bottom"><i class="fa fa-recycle"></i> SEE MORE</a>
+					<!-- <a href="" class="button button-orange button-fullscreen full-bottom"><i class="fa fa-recycle"></i> SEE MORE</a> -->
 				</div>
 				<div class="decoration"></div>
 			</div>
@@ -40,7 +40,7 @@
 			<ng-include src="footer.url"></ng-include>
             <div class="footer-clear disabled"></div>
         </div>
-        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
+        <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>{{ _lang.back_top }}</a>
     </div>
 </div>
 
